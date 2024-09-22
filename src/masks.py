@@ -4,8 +4,8 @@ def get_mask_card_number(cart_nums: str) -> str:
     return mask_card
 
 
-#if __name__ == "__main__":
-  #  print(get_mask_card_number("1234567896541236"))
+# if __name__ == "__main__":
+#  print(get_mask_card_number("1234567896541236"))
 
 
 def get_mask_account(account_number: str) -> str:
@@ -14,7 +14,5 @@ def get_mask_account(account_number: str) -> str:
     return mask_account
 
 
-#if __name__ == "__main__":
-  #  print(get_mask_account("12547896255222"))
-def get_mask_accoun():
-    return None
+# if __name__ == "__main__":
+#  print(get_mask_account("12547896255222"))
