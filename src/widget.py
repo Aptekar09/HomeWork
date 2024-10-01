@@ -26,7 +26,7 @@ def mask_account_card(account_cart: str) -> str:
 
 
 if __name__ == "__main__":
-    print(mask_account_card('Visa Master 7000798728906360'))
+    print(mask_account_card("Visa Master 7000798728906360"))
 
 
 def get_date(date_num: str) -> str:
@@ -36,7 +36,7 @@ def get_date(date_num: str) -> str:
         list_date = list_date_num[0].split("-")
         return f"{list_date[2]}.{list_date[1]}.{list_date[0]}"
     else:
-        raise ValueError('Не корректный формат ввода')
+        raise ValueError("Не корректный формат ввода")
 
 
 if __name__ == "__main__":

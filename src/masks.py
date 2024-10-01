@@ -10,18 +10,18 @@ def get_mask_card_number(cart_nums: str) -> str:
 
 
 if __name__ == "__main__":
-  print(get_mask_card_number("1234567896541237"))
+    print(get_mask_card_number("1234567896541237"))
 
 
 def get_mask_account(account_number: str) -> str:
     """Маскировка номера счета"""
 
     if isinstance(account_number, str) and len(account_number) == 20 and account_number.isdigit():
-            mask_account = f"**{account_number[-4:]}"
-            return mask_account
+        mask_account = f"**{account_number[-4:]}"
+        return mask_account
     else:
-        raise ValueError('Не верный ввод')
+        raise ValueError("Не верный ввод")
 
 
-if __name__ == "__main__":
-    print(get_mask_account(12345612547896255228))
+# if __name__ == "__main__":
+#     print(get_mask_account(12345612547896255228))
