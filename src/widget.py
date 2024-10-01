@@ -36,7 +36,7 @@ def get_date(date_num: str) -> str:
         list_date = list_date_num[0].split("-")
         return f"{list_date[2]}.{list_date[1]}.{list_date[0]}"
     else:
-        raise ValueError('Не корректный ввод')
+        raise ValueError('Не корректный формат ввода')
 
 
 if __name__ == "__main__":

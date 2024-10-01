@@ -21,13 +21,19 @@ def date():
     return "2024-03-11T02:26:18.671407"
 
 def test_get_date(date):
+    """Тестирование правильности преобразования даты."""
     assert get_date(date) == '11.03.2024'
 
-@pytest.mark.parametrize('date_num, expected', [(0, ValueError),
-                                                ("", ValueError ),
-                                                ('2024-03-11D02:26:18.671407', ValueError ),
+@pytest.mark.parametrize('date_num, expected', [("", ValueError),
+                                                ("2024-03-11T02", ValueError),
+                                                ('20240311D022618671407', ValueError),
+                                                ('jhghjguyuyujkhjkgjhgjhgj', ValueError)])
 
-                                        ])
+
 def test_get_date_invalid(date_num, expected):
-    with pytest.raises(ValueError):
+    """Проверка, что функция корректно обрабатывает входные строки, где отсутствует дата.
+    Проверка работы функции на различных входных форматах даты, включая граничные случаи и нестандартные строки с датами."""
+    with pytest.raises(expected):
         get_date(date_num)
+
+
