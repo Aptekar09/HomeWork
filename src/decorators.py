@@ -27,6 +27,7 @@ def log(filename: Optional[str]=None) -> Callable:
                         file.write(f'{log_message}')
                 else:
                     print(f'{func.__name__} error: {e.__class__.__name__} Inputs: {args}, {kwargs}\n')
+
         return wrapper
     return decorate
 
