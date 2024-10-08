@@ -1,4 +1,5 @@
-from collections.abc import Iterator
+
+from typing import Any
 
 import pytest
 
@@ -6,8 +7,8 @@ from src.generators import card_number_generator, filter_by_currency, transactio
 
 
 @pytest.fixture
-def list_dict():
-    """ Фикстура"""
+def list_dict() -> list[dict]:
+    """Фикстура"""
     return [
         {
             "id": 939719570,
@@ -39,7 +40,7 @@ def list_dict():
     ]
 
 
-def test_filter_by_currency(list_dict, currency="USD"):
+def test_filter_by_currency(list_dict: list[dict], currency: str = "USD") -> None:
     """тест на корректность работы"""
     generator = filter_by_currency(list_dict, "USD")
     assert next(generator) == {
@@ -54,7 +55,7 @@ def test_filter_by_currency(list_dict, currency="USD"):
 
 
 @pytest.mark.parametrize("list_dict, currency, expected", [([{}], "USD", ValueError), ([], "USD", ValueError)])
-def test_fiter_by_currency_invalid(list_dict, currency, expected):
+def test_fiter_by_currency_invalid(list_dict: list[dict], currency: str, expected: Any) -> None:
     """Тест на некорректный ввод"""
     generator = filter_by_currency(list_dict, "USD")
     with pytest.raises(expected):
@@ -98,7 +99,7 @@ def test_fiter_by_currency_invalid(list_dict, currency, expected):
         )
     ],
 )
-def test_transaction_descriptions(list_dict, expect):
+def test_transaction_descriptions(list_dict: list[dict], expect: Any) -> None:
     """Тест на корректность работы"""
     generator = transaction_descriptions(list_dict)
     assert next(generator) == expect
@@ -107,13 +108,13 @@ def test_transaction_descriptions(list_dict, expect):
 @pytest.mark.parametrize(
     "starts, end, expected", [(10, 11, "0000 0000 0000 0010"), (1000, 100005, "0000 0000 0000 1000")]
 )
-def test_card_number_generator(starts, end, expected):
+def test_card_number_generator(starts: int, end: int, expected: Any) -> None:
     """Тест на корректность работы функции"""
     generator = card_number_generator(starts, end)
     assert next(generator) == expected
 
 
-def test_cart_number_generator_invalid():
+def test_cart_number_generator_invalid() -> None:
     """Тестирование на не корректный ввод"""
     generator = card_number_generator(0, 0)
     with pytest.raises(ValueError):
