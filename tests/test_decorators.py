@@ -7,6 +7,7 @@ from src.decorators import log
 
 @log()
 def test_log(capsys: Any) -> None:
+    """Тестируем декоратор @log на корректность вывода в консоль с помощью фикстуры capsys и тест на ошибку """
     my_function()
     captured = capsys.readouterr()
     assert captured.out == "my_function ок\n\n"

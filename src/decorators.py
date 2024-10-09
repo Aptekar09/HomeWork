@@ -3,6 +3,8 @@ from typing import Any, Callable, Optional
 
 
 def log(filename: Optional[str] = None) -> Callable:
+    """Декоратор, который автоматически регистрирует детали выполнения функций,
+ результат выполнения и информация об ошибках, передает в файл или выводит на консоль если файла нет"""
     def decorate(func: Any) -> Callable:
         @wraps(func)
         def wrapper(*args: Any, **kwargs: Any) -> Any:
