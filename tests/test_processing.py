@@ -11,7 +11,7 @@ def list_dicts() -> list[dict]:
     ]
 
 
-def test_filter_by_state(list_dicts: list[dict], state: str ="EXECUTED") -> None:
+def test_filter_by_state(list_dicts: list[dict], state: str = "EXECUTED") -> None:
     """Тестирование фильтрации списка словарей по заданному статусу state"""
     assert filter_by_state(list_dicts, state="EXECUTED") == [
         {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},

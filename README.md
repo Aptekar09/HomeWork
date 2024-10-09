@@ -9,11 +9,14 @@
 1. Для использования функции по ДЗ 10.1 необходимо перейти [Проект](https://github.com/Aptekar09/HomeWork/tree/main) в папку src  и найти  файл processing.py.  Функция ```filter_by_state(list_dict: List[Dict], state: "str" = "EXECUTED") -> List[Dict]``` выводит список словарей содержащих ключ state.
 Функция ```sort_by_date(lists_dict: list[dict], reverse: bool = True) -> list[dict]``` сортирует список словарей в порядке убывания по дате.
 
-В модуль **generators.py** добавлены следующие функции
+2. В модуль **generators.py** добавлены следующие функции
 - filter_by_currency
-- transaction_descriptions:
-    
+- transaction_descriptions
 - card_number_generator
+
+## Декораторы 
+В модулe **decorators** записан декоратор с параметрами @log
+который будет автоматически регистрировать детали выполнения функций, такие как время вызова, имя функции, передаваемые аргументы, результат выполнения и информация об ошибках
 ## Тестирование функции
 Все тесты находятся в папке tests. Для каждого модуля создана отдельный файл с тестами: test_mask.py, test_processing.py, test_widget.py
 Тестовое покрытие (test coverage) составляет 93% 
